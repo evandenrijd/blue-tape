@@ -8,6 +8,9 @@ Test.prototype.run = function () {
   if (this._skip) {
     return this.end()
   }
+  if (this._timeout != null) {
+    this.timeoutAfter(this._timeout)
+  }
   this.emit('prerun')
   try {
     var p = this._cb && this._cb(this)
