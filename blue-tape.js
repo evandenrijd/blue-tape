@@ -33,7 +33,7 @@ Test.prototype.run = function () {
   this.emit('run')
 }
 
-function noop() {}
+function noop () {}
 
 Test.prototype.shouldFail =
 Test.prototype.shouldReject =
@@ -42,10 +42,9 @@ function (promise, expected, message, extra) {
   return promise.then(function () {
     self.throws(noop, expected, message, extra)
   }, function (err) {
-    function f() {throw err}
+    function f () { throw err }
     self.throws(f, expected, message, extra)
   })
 }
-
 
 module.exports = require('tape')
